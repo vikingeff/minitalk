@@ -15,10 +15,11 @@ NAME1		=	server
 NAME2		=	client
 
 SRCS1		=	ft_stuff.c \
-				server.c
+          		server.c
 
 SRCS2		=	ft_stuff.c \
-				client.c
+          		ft_more.c \
+          		client.c
 
 OBJS1		=	$(SRCS1:.c=.o)
 
@@ -32,11 +33,14 @@ CFLAGS		+=	-Wall -Werror -Wextra -O3 -I./includes
 
 all			:	$(NAME1) $(NAME2)
 
-$(NAME1)	:	$(OBJS1) ./includes/minitalk.h
-				$(CC) -o $(NAME1) $(OBJS1) $(CFLAGS)
+$(NAME1)	:	$(OBJS1)
+				$(CC) $(CFLAGS) -o $@ $^
 
-$(NAME2)	:	$(OBJS2) ./includes/minitalk.h
-				$(CC) -o $(NAME2) $(OBJS2) $(CFLAGS)
+$(NAME2)	:	$(OBJS2)
+				$(CC) $(CFLAGS) -o $@ $^
+
+%.o     	:	%.c includes/minitalk.h
+	$(CC) $(CFLAGS) -c $<
 
 clean		:
 				$(RM) $(OBJS1) $(OBJS2)

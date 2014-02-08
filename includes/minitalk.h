@@ -27,9 +27,9 @@ typedef struct	s_sig
 
 int				ft_strlen(char *str);
 int				error(char *str);
-void			ft_putchar(char c);
+int 			ft_putchar(char c);
 void			ft_putnbr(int nb);
-void      ft_putstr(char *str);
+int       ft_putstr(char *str);
 int       ft_isdigit(int c);
 
 #endif			/* !MINITALK_H_ */
