@@ -35,24 +35,51 @@ int			send_info(char c, int pid)
 				return (error("Error on kill\n"));
 		}
 		nb = nb / 2;
-		usleep(1000);
+		usleep(10);
 	}
 	return (0);
+}
+
+int     check_pid(char *str)
+{
+  int   size;
+  int   loop;
+
+  loop = 0;
+  size = ft_strlen(str);
+  while(loop < size)
+  {
+    if (ft_isdigit(str[loop]))
+      loop++;
+    else
+      return (EXIT_FAILURE);
+  }
+  return (0);
 }
 
 int			main(int ac, char **av)
 {
 	int		pid;
-	int		j;
+	int		index;
 
-	j = 0;
+	index = 0;
 	if (ac != 3)
 		return (-1);
-	pid = atoi(av[1]);
-	while (av[2][j])
-	{
-		if (send_info(av[2][j++], pid) == -1)
-			return (-1);
+  if (check_pid(av[1]))
+  {
+    error(ERR_PID);
+    return (EXIT_FAILURE);
 	}
+  else
+  {
+    pid = atoi(av[1]);
+	  while (av[2][index])
+	  {
+		  if (send_info(av[2][index++], pid) == -1)
+			  return (-1);
+	  }
+	  if (send_info('\n', pid) == -1)
+	    return (-1);
+  }
 	return (0);
 }

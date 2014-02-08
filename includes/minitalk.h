@@ -16,6 +16,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+# define ERR_PID "Le PID n'est pas conforme.\n"
+
 typedef struct	s_sig
 {
 	int			size;
@@ -27,5 +29,7 @@ int				ft_strlen(char *str);
 int				error(char *str);
 void			ft_putchar(char c);
 void			ft_putnbr(int nb);
+void      ft_putstr(char *str);
+int       ft_isdigit(int c);
 
 #endif			/* !MINITALK_H_ */

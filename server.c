@@ -33,22 +33,38 @@ void					receive_signal(int signal, siginfo_t *siginfo, void *unused)
 	}
 }
 
-int					main()
+void    show_usage(char *prog_name)
+{
+  error("Usage: ");
+  error(prog_name);
+  error("\n");
+}
+
+int					main(int argc, char **argv)
 {
 	int					pid;
 	struct sigaction	catch;
 
-	if ((pid = getpid()) == -1)
-		return (error("Error on getpid\n"));
-	ft_putnbr(pid);
-	ft_putchar('\n');
-	catch.sa_flags = SA_SIGINFO;
-	catch.sa_sigaction = receive_signal;
-	if ((sigaction(SIGUSR1, &catch, 0)) == -1)
-		return (error("Error on sigaction\n"));
-	if ((sigaction(SIGUSR2, &catch, 0)) == -1)
-		return (error("Error on sigaction\n"));
-	while (42)
-		pause();
+  if (argc == 1)
+  {
+	  if ((pid = getpid()) == -1)
+		  return (error("Error on getpid\n"));
+	  ft_putstr("Le PID du serveur est : ");
+    ft_putnbr(pid);
+	  ft_putchar('\n');
+	  catch.sa_flags = SA_SIGINFO;
+	  catch.sa_sigaction = receive_signal;
+	  if ((sigaction(SIGUSR1, &catch, 0)) == -1)
+		  return (error("Error on sigaction\n"));
+	  if ((sigaction(SIGUSR2, &catch, 0)) == -1)
+		  return (error("Error on sigaction\n"));
+	  while (42)
+		  pause();
+  }
+  else
+  {
+    show_usage(argv[0]);
+    return (EXIT_FAILURE);
+  }
 	return (EXIT_SUCCESS);
 }
