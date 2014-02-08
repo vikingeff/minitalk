@@ -12,11 +12,9 @@
 
 #include	<sys/types.h>
 #include	<sys/wait.h>
-#include	<unistd.h>
 #include	<signal.h>
-#include	<stdlib.h>
 #include	<string.h>
-#include	"minitalk.h"
+#include	<minitalk.h>
 
 int			send_info(char c, int pid)
 {

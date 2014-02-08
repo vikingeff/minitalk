@@ -13,9 +13,7 @@
 #include				<sys/types.h>
 #include				<signal.h>
 #include				<sys/wait.h>
-#include				<stdlib.h>
-#include				<unistd.h>
-#include				"minitalk.h"
+#include				<minitalk.h>
 
 void					receive_signal(int signal, siginfo_t *siginfo, void *unused)
 {
