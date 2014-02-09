@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svermeer <svermeer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/08 10:56:45 by svermeer          #+#    #+#             */
-/*   Updated: 2014/02/08 13:01:18 by svermeer         ###   ########.fr       */
+/*   Updated: 2014/02/09 22:08:06 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+# include <signal.h>
+# include <string.h>
 
 # define ERR_PID "Le PID n'est pas conforme.\n"
 
@@ -29,7 +33,8 @@ int				ft_strlen(char *str);
 int				error(char *str);
 int 			ft_putchar(char c);
 void			ft_putnbr(int nb);
-int       ft_putstr(char *str);
-int       ft_isdigit(int c);
+int				ft_putstr(char *str);
+int				ft_isdigit(int c);
+int				ft_atoi(const char *str);
 
 #endif			/* !MINITALK_H_ */

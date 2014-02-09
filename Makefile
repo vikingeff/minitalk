@@ -40,7 +40,7 @@ $(NAME2)	:	$(OBJS2)
 				$(CC) $(CFLAGS) -o $@ $^
 
 %.o     	:	%.c includes/minitalk.h
-	$(CC) $(CFLAGS) -c $<
+				$(CC) $(CFLAGS) -c $<
 
 clean		:
 				$(RM) $(OBJS1) $(OBJS2)
@@ -49,3 +49,5 @@ fclean		:	clean
 				$(RM) $(NAME1) $(NAME2)
 
 re			:	fclean all
+
+.PHONY		:	all clean fclean re

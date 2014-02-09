@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svermeer <svermeer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/08 12:34:16 by svermeer          #+#    #+#             */
-/*   Updated: 2014/02/08 14:52:44 by svermeer         ###   ########.fr       */
+/*   Updated: 2014/02/09 22:07:03 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,21 @@ int			send_info(char c, int pid)
 	return (0);
 }
 
-int     check_pid(char *str)
+int			check_pid(char *str)
 {
-  int   size;
-  int   loop;
+	int		size;
+	int		loop;
 
-  loop = 0;
-  size = ft_strlen(str);
-  while(loop < size)
-  {
-    if (ft_isdigit(str[loop]))
-      loop++;
-    else
-      return (EXIT_FAILURE);
-  }
-  return (0);
+	loop = 0;
+	size = ft_strlen(str);
+	while (loop < size)
+	{
+		if (ft_isdigit(str[loop]))
+		loop++;
+	else
+		return (EXIT_FAILURE);
+	}
+	return (0);
 }
 
 int			main(int ac, char **av)
@@ -65,21 +65,21 @@ int			main(int ac, char **av)
 	index = 0;
 	if (ac != 3)
 		return (-1);
-  if (check_pid(av[1]))
-  {
-    error(ERR_PID);
-    return (EXIT_FAILURE);
+	if (check_pid(av[1]))
+	{
+		error(ERR_PID);
+		return (EXIT_FAILURE);
 	}
-  else
-  {
-    pid = atoi(av[1]);
-	  while (av[2][index])
-	  {
-		  if (send_info(av[2][index++], pid) == -1)
-			  return (-1);
-	  }
-	  if (send_info('\n', pid) == -1)
-	    return (-1);
-  }
+	else
+	{
+		pid = ft_atoi(av[1]);
+		while (av[2][index])
+		{
+			if (send_info(av[2][index++], pid) == -1)
+				return (-1);
+		}
+		if (send_info('\n', pid) == -1)
+			return (-1);
+	}
 	return (0);
 }
