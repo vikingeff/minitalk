@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/09 20:10:33 by gleger            #+#    #+#             */
-/*   Updated: 2014/02/09 22:11:32 by gleger           ###   ########.fr       */
+/*   Updated: 2014/02/09 22:29:34 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int		clean_str(const char *str)
 	int			index;
 
 	index = 0;
-	while (str[index] == ' ' || str[index] == '\t' || str[index] == '\n' 
+	while (str[index] == ' ' || str[index] == '\t' || str[index] == '\n'
 		|| str[index] == '\r' || str[index] == '\f' || str[index] == '\v')
 		index++;
 	return (index);

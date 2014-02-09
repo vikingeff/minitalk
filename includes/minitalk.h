@@ -6,12 +6,12 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/08 10:56:45 by svermeer          #+#    #+#             */
-/*   Updated: 2014/02/09 22:08:06 by gleger           ###   ########.fr       */
+/*   Updated: 2014/02/09 22:25:35 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef			MINITALK_H_
-# define		MINITALK_H_
+#ifndef MINITALK_H
+# define MINITALK_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -31,10 +31,10 @@ typedef struct	s_sig
 
 int				ft_strlen(char *str);
 int				error(char *str);
-int 			ft_putchar(char c);
+int				ft_putchar(char c);
 void			ft_putnbr(int nb);
 int				ft_putstr(char *str);
 int				ft_isdigit(int c);
 int				ft_atoi(const char *str);
 
-#endif			/* !MINITALK_H_ */
+#endif /* !MINITALK_H */
